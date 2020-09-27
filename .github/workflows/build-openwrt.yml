@@ -129,6 +129,7 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
+        echo "$(ls)"
         echo "::set-env name=FIRMWARE::$PWD"
         echo "::set-output name=status::success"
 
