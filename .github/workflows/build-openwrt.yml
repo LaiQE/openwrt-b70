@@ -73,8 +73,8 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         echo "--------------------------------------"
+        echo "pwd:$(pwd)"
         echo "$(ls)"
-        echo "$(pwd)"
         echo "--------------------------------------"
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
@@ -91,6 +91,7 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         echo "--------------------------------------"
+        echo "pwd:$(pwd)"
         echo "$(ls)"
         echo "--------------------------------------"
         $GITHUB_WORKSPACE/$DIY_P2_SH
@@ -135,8 +136,13 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
+        echo "--------------------------------------"
+        echo "pwd:$(pwd)"
+        echo "$(ls)"
+        echo "--------------------------------------"
         rm -rf packages
         echo "--------------------------------------"
+        echo "pwd:$(pwd)"
         echo "$(ls)"
         echo "--------------------------------------"
         echo "::set-env name=FIRMWARE::$PWD"
